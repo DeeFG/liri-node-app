@@ -1,15 +1,16 @@
+
 console.log('this is loaded');
 
 exports.spotify = {
-  id: process.env.SPOTIFY_ID,
-  secret: process.env.SPOTIFY_SECRET
+  id: process.env.476ec4513b934cf4b593fcac79981767,
+  secret: process.env.c4adb3e56883466f8526073f678ddd7e 
 };
 
 var Spotify = require('node-spotify-api');
  
 var spotify = new Spotify({
-  id: <your spotify client id>,
-  secret: <your spotify client secret>
+  id: 476ec4513b934cf4b593fcac79981767 , 
+  secret: c4adb3e56883466f8526073f678ddd7e
 });
  
 spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
@@ -21,23 +22,3 @@ console.log(data);
 });
 
 
-axios.get('/user?ID=12345')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
- 
-// Optionally the request above could also be done as
-axios.get('/user', {
-    params: {
-      ID: 12345
-    }
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
