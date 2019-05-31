@@ -2,12 +2,12 @@ const dotenv = require("dotenv").config();
 const axios = require('axios');
 const keys = require("./keys.js");
 
-// const bandsAPI = "ea62aafa-9c71-4187-9044-fe3057cbd186"
+// const bandsAPI = ""
 
 let searched ="zed";
-//const bandsURL = ("https://rest.bandsintown.com/" + searched + "ea62aafa-9c71-4187-9044-fe3057cbd186");
+//const bandsURL = ("https://rest.bandsintown.com/" + searched + "");
 
-let URL = "https://rest.bandsintown.com/artists/"+ searched +"/events?app_id=ea62aafa-9c71-4187-9044-fe3057cbd186"
+let URL = "https://rest.bandsintown.com/artists/"+ searched +"/events?app_id="
 
 
 
