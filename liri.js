@@ -2,29 +2,22 @@ const dotenv = require("dotenv").config();
 const axios = require('axios');
 const keys = require("./keys.js");
 
-// const bandsAPI = ""
+let searched = "zed";
 
-let searched ="zed";
-//const bandsURL = ("https://rest.bandsintown.com/" + searched + "");
+let URL = "https://rest.bandsintown.com/artists/" + searched + "/events?app_id=ea62aafa-9c71-4187-9044-fe3057cbd186"
 
-let URL = "https://rest.bandsintown.com/artists/"+ searched +"/events?app_id="
+axios.get(URL).then(function (response) {
+  console.log("*******************************************************************************************************");
 
+  console.log(response.data[0].venue.name)
 
+  console.log("The Venue" + response.data[0].venue.name);
+  console.log("The Location " + response.data[0].venue.city + "," + response.data[0].venue.region + "," + response.data[0].venue.country);
+  console.log("The Date " + response.data[0].venue.datetime);
+  // (use moment to format this as "MM/DD/YYYY")
 
-// Bands in town
-axios.get(URL).then(
+});
 
-  function (response) {
-console.log( "*******************************************************************************************************");
-console.log(response.data.id);
-console.log( response);
-    // console.log("The Venue" + response.VenueData.name);
-    // console.log("The Location" + response.VenueData.city + "," + response.VenueData.region + "," + response.VenueData.country);
-  // console.log("The Date " + window.JSON.EventData.datetime);
-    // (use moment to format this as "MM/DD/YYYY")
-
-  }
-);
 
 //
 
