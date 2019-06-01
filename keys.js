@@ -56,3 +56,55 @@ exports.spotify = {
 // });
 
 
+// var TV = function () {};
+
+
+//   TV.prototype.findShow = function (show) {
+//     // The following URL can be used to search the TV Maze API for a given show
+//     var URL = "http://api.tvmaze.com/singlesearch/shows?q=" + show;
+
+//     axios.get(URL).then(function (response) {
+
+//       console.log(response.data.name);
+
+//       const data = `${response.data.name}` ;
+
+     
+//     }); 
+//   }
+
+//   var TV = function () {};
+
+
+//   TV.prototype.findShow = function (show) {
+//     // The following URL can be used to search the TV Maze API for a given show
+//     var URL = "http://api.tvmaze.com/singlesearch/shows?q=" + show;
+
+//     axios.get(URL).then(function (response) {
+
+//       console.log(response.data.name);
+
+//       const data = `${response.data.name}` ;
+
+     
+//     }); 
+//   }
+
+
+//   var TV = function () {};
+
+
+//   TV.prototype.findShow = function (show) {
+//     // The following URL can be used to search the TV Maze API for a given show
+//     var URL = "http://api.tvmaze.com/singlesearch/shows?q=" + show;
+
+//     axios.get(URL).then(function (response) {
+
+//       console.log(response.data.name);
+
+//       const data = `${response.data.name}` ;
+
+     
+//     }); 
+//   }
+//    module.exports = keys;
