@@ -11,7 +11,7 @@ exports.bandsintown = {
   bandInTownAPI_KEY: process.env.API_KEY,
 };
 
-//var SpotifyWebApi = require('spotify-web-api-node');
+var SpotifyWebApi = require('spotify-web-api-node');
 
 // // credentials are optional
 // var spotifyApi = new SpotifyWebApi({

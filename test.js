@@ -67,7 +67,7 @@ function getConcert() {
 
 
 }
-function getMovie() {
+
     const resultData = process.argv[3];
     fs.appendFile("random.txt", `,-${resultData}`, function (err) {
 
@@ -77,10 +77,7 @@ function getMovie() {
         console.log(`Withdraw successful $${resultData}`);
     });
 
-}
-function getMusic() { }
+function getMovie() {}
+function getMusic() {}
 
-function getSong() { 
-    
-    console.log("------");
-}
+function getSong() {}
