@@ -74,8 +74,8 @@ function getMovie() {
       console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
       console.log("Title " + dataFromResponse.Title);
       console.log("Year: " + dataFromResponse.Year);
-      console.log("IMDB Rating: " + dataFromResponse.ImdbRating);
-      console.log("Rotten Tomatoes Rating: " + dataFromResponse.rating);
+      console.log("IMDB Rating: " + dataFromResponse.imdbRating);
+      console.log("Rotten Tomatoes Rating: " + dataFromResponse.Ratings);
       console.log("Country: " + dataFromResponse.Country);
       console.log("Language: " + dataFromResponse.Language);
       console.log("Plot: " + dataFromResponse.Plot);
