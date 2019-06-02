@@ -1,12 +1,13 @@
 const dotenv = require("dotenv").config();
 const axios = require('axios');
 const keys = require("./keys.js");
-var fs = require("fs");
-var moment = require('moment');
-var Spotify = require('node-spotify-api');
- 
-const choice = process.argv[2];
+let fs = require("fs");
+let moment = require('moment');
+// let Spotify = require('node-spotify-api');
+let omdb = require('omdb');
 
+// make  switch to  go through different APIS
+const choice = process.argv[2];
 switch (choice) {
   case "concert-this":
     getConcert();
@@ -29,9 +30,6 @@ switch (choice) {
 }
 
 
-
-
-
 function getConcert() {
   const usertext = process.argv[3];
   let URL = "https://rest.bandsintown.com/artists/" + usertext + "/events?app_id=bandInTownAPI_KEY";
@@ -47,10 +45,11 @@ function getConcert() {
         console.log(err);
       }
       console.log("*******************************************************************************************************");
+      console.log()
       console.log("Artist/Band: " + resultData);
       console.log("The Venue: " + dataFromResponse[0].venue.name);
       console.log("The Location: " + dataFromResponse[0].venue.city + "," + dataFromResponse[0].venue.region + "," + dataFromResponse[0].venue.country);
-      console.log("The Date: " + moment( dataFromResponse[0].datetime).format("MM/DD/YYYY"));
+      console.log("The Date: " + moment(dataFromResponse[0].datetime).format("MM/DD/YYYY"));
       console.log("*******************************************************************************************************");
 
     });
@@ -58,41 +57,65 @@ function getConcert() {
 }
 
 
-function getMovie() {}
-
-function getMusic() {}
-
-function getSong() {
+function getMovie() {
   const usertext = process.argv[3];
-  let URL = "https://api.spotify.com" + usertext + "/events?app_id=ea62aafa-9c71-4187-9044-fe3057cbd186";
+  // let URL = "https://www.omdbapi.com/" + usertext + "&apikey=";
+  let URL = "https://www.omdbapi.com/?t=" + usertext + "&apikey=trilogy";
+  axios.get(URL).then(function (response) {
 
+    let dataFromResponse = response.data;
+    const resultData = process.argv[3];
 
-   
+    fs.appendFile("random.txt", resultData, function (err) {
+      if (process.argv.length < 4) {
+        return;
+        console.log(err);
+      }
+      console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+      console.log("Title " + dataFromResponse.Title);
+      console.log("Year: " + dataFromResponse.Year);
+      console.log("IMDB Rating: " + dataFromResponse.ImdbRating);
+      console.log("Rotten Tomatoes Rating: " + dataFromResponse.rating);
+      console.log("Country: " + dataFromResponse.Country);
+      console.log("Language: " + dataFromResponse.Language);
+      console.log("Plot: " + dataFromResponse.Plot);
+      console.log("Actors: " + dataFromResponse.Actors);
+      console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-spotify.request("https://api.spotify.com/v1/" + usertext + "/7yCPwWs66K8Ba5lFuU2bcx").then(function(data) {
-    console.log(data); 
-  })
-  .catch(function(err) {
-    console.error('Error occurred: ' + err); 
+    });
   });
-   
-  console.log(data); 
-
-      // console.log("*******************************************************************************************************");
-      // console.log("Artist/Band: " + resultData);The song's name
-      // console.log("The Venue: " + dataFromResponse[0].venue.name);A preview link of the song from Spotify
-      // The album that the song is from
-      // console.log("The Location: " + dataFromResponse[0].venue.city + "," + dataFromResponse[0].venue.region + "," + dataFromResponse[0].venue.country);
-      // console.log("*******************************************************************************************************");
-
-  // });
-
 }
 
 
-Artist(s)
 
 
 
 
 
+      // else {
+      //   console.log("*******************************************************************************************************");
+      //   console.log("MOVIE: " + resultData.Title);
+      //   console.log("*******************************************************************************************************");
+
+      // // * Title of the movie.
+      // // * Year the movie came out.
+      // // * IMDB Rating of the movie.
+      // // * Rotten Tomatoes Rating of the movie.
+      // // * Country where the movie was produced.
+      // // * Language of the movie.
+      // // * Plot of the movie.
+      // // * Actors in the movie.
+
+
+      // // function getMusic(){};
+
+      // // function getSong() {};
+      //   // const usertext = process.argv[3];
+
+      //   // spotify.request("https://api.spotify.com/v1/" + usertext + "/7yCPwWs66K8Ba5lFuU2bcx").then(function (data) {
+      //   //   console.log(data);
+      //   // })
+      //   //   .catch(function (err) {
+      //   //     console.error('Error occurred: ' + err);
+      //   //   });
+      // }
